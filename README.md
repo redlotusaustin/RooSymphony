@@ -104,14 +104,6 @@ The framework emphasizes thorough documentation at every stage:
 - Test plans and results
 - Visual representations (diagrams) of architecture and workflows
 
-### 🔧 Adaptive Automation Levels
-
-Symphony supports three automation levels that control how independently agents operate:
-
-- **Low**: Requires explicit human approval for delegation and user commands
-- **Medium**: Allows delegation but requires approval for user commands
-- **High**: Permits autonomous delegation and user command execution
-
 ## Architecture Overview
 
 Symphony's architecture is designed around specialized agent roles that work together in a hierarchical structure:
@@ -450,7 +442,6 @@ Symphony agents support a variety of user commands. Here are the most commonly u
 | `/escalate "issue"` | Escalate an issue to a higher-level agent | `/escalate "Security vulnerability found"` |
 | `/delegate-to [agent] "task"` | Delegate a task to another agent | `/delegate-to symphony-security "Review authentication"` |
 | `/request-review "path"` | Request review of a specific artifact | `/request-review "src/auth/login.js"` |
-| `/set-automation [level]` | Set the automation level (human only) | `/set-automation medium` |
 
 ### Score Commands
 
