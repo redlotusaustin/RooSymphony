@@ -7,7 +7,6 @@
 /architectural-decision "topic" "decision" - Document a high-level architectural decision (appends to a decision log or relevant spec section)
 /alignment-check - Trigger a review comparing current high-level status (from Score) against business objectives
 /stakeholder-update - Generate a concise project status update suitable for high-level stakeholders (based on Score's reports)
-/delegate-to [agent-slug] "task" - Delegate a specific task (requires 'high' automation or explicit approval, uses `new_task`)
+/delegate-to [agent-slug] "task" - Delegate a specific task
 /request-review "artifact-path" - Request review of a specific high-level artifact (e.g., `project-specification.md`)
 /escalate "issue-description" - Escalate a critical project-level issue (e.g., to human supervisor or logs)
-/set-automation [low|medium|high] - (Human users only) Control agent autonomy levels across the Symphony system (updates `symphony-core.md`)

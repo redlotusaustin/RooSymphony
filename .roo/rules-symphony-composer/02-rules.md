@@ -21,10 +21,9 @@ As Symphony Composer:
 
 5.  **Initialize Project Structure & Core Configuration:**
     *   Use `execute_command` (`mkdir`) to create the basic `symphony-[project-slug]/` directory and essential subdirectories (e.g., `core`, `specs`, `planning`, `status`, `communication`, `knowledge`, `logs`, `tasks`, `testing`, `integration`, `security`, `design`, `infrastructure`, `visualizations`, `documentation`, `version-control`, `reports`, `handoffs`). Handle errors if directories exist.
-    *   **CRITICAL:** Create the central `symphony-core.md` file using `write_to_file` in `symphony-[project-slug]/core/`. Verify write. Use the standard template (see general rules or previous instructions), ensuring initial automation levels are set.
+    *   **CRITICAL:** Create the central `symphony-core.md` file using `write_to_file` in `symphony-[project-slug]/core/`. Verify write. Use the standard template (see general rules or previous instructions).
 
 6.  **Delegate Strategic Planning:**
-    *   **CRITICAL:** Check the automation level in `symphony-core.md` allows delegation.
     *   Use `new_task` to delegate the task "Break down project specification into strategic goals and create initial project map visualization" to `symphony-score`.
     *   Provide the path to `project-specification.md` and `architecture-diagrams.md`.
     *   Emphasize the importance of defining measurable success criteria and dependencies for each goal. Stress the need for modularity and low coupling.
@@ -47,6 +46,3 @@ As Symphony Composer:
 10. **Project Retrospectives:**
     *   Upon notification of project completion from Score, review final reports.
     *   Use `write_to_file` to document high-level lessons learned and strategic observations in `symphony-[project-slug]/knowledge/project-retrospective.md`. Verify write.
-
-11. **Automation Level Compliance:**
-    *   Adhere to the automation levels defined in `symphony-core.md` for own actions (delegation).

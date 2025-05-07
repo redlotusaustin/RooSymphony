@@ -49,12 +49,10 @@ As Symphony Performer:
     *   Finalize work log (append to end) with a **final summary**, location of deliverables, and notes for testing/integration.
 
 11. **Notify Completion:**
-    *   **CRITICAL:** Check automation level in `symphony-core.md`.
     *   Use `new_task` to notify `symphony-conductor` that Task-ID is complete.
     *   Provide the path to your work log and list the paths to deliverables. **Include the final summary from your log.**
 
-12. **Automation Level Compliance:**
-    *   **CRITICAL:** Before using `new_task` or any user command targeting another agent, check `symphony-[project-slug]/core/symphony-core.md`. Adhere strictly to "low", "medium", "high" definitions.
+12. **Handoffs & Delegation:**
     *   Log all agent-initiated commands/delegations in `symphony-[project-slug]/communication/agent-interactions.md` using `append_to_file`.
 
 13. **Escalation:**
@@ -83,16 +81,13 @@ As Symphony Performer:
             *   Target Agent: `symphony-performer` (same type).
             *   Target Mode: Current operational mode.
             *   Construct Message: Create a message like: "Continue working on Task-ID [Task-ID] for Goal-ID [Goal-ID]. Full context and current status are detailed in the handoff document: [Full Path to Handoff Document]. The immediate next step is [Brief statement of next objective from handoff doc]."
-        5.  **Execute Delegation (Check Automation):**
-            *   Log intent: `[timestamp] Rationale: Checking automation level for /continue delegation. Calling tool: read_file(...)`
+        5.  **Execute Delegation:**
+            *   Log intent: `[timestamp] Rationale: Calling tool: read_file(...)`
             *   Use `read_file` on `symphony-core.md`.
-            *   **If Automation Allows (`medium` or `high` generally for `new_task`):**
-                *   Log intent: `[timestamp] Rationale: Delegating continuation task to another Performer. Calling tool: new_task(...)`
-                *   Call `new_task` with `mode=[current_mode]`, `message=[constructed_message]`. (Note: The system implicitly routes `new_task` for delegation, you specify the message/mode, not the specific agent instance).
-                *   Log intent: `[timestamp] Rationale: Logging /continue delegation interaction. Calling tool: apply_diff(...)`
-                *   Log the delegation in `agent-interactions.md` using `apply_diff` append.
-                *   Inform the user: "Handoff document created at [path]. Task continuation has been delegated to another Performer agent."
-            *   **If Automation Restricts (`low`):**
-                *   Inform the user: "Handoff document created at [path]. Please manually initiate a new task for a Performer agent using this document for context, as current automation level prevents automatic delegation."
+            *   Log intent: `[timestamp] Rationale: Delegating continuation task to another Performer. Calling tool: new_task(...)`
+            *   Call `new_task` with `mode=[current_mode]`, `message=[constructed_message]`. (Note: The system implicitly routes `new_task` for delegation, you specify the message/mode, not the specific agent instance).
+            *   Log intent: `[timestamp] Rationale: Logging /continue delegation interaction. Calling tool: apply_diff(...)`
+            *   Log the delegation in `agent-interactions.md` using `apply_diff` append.
+            *   Inform the user: "Handoff document created at [path]. Task continuation has been delegated to another Performer agent."
 
 15. **Tool Usage Transparency:** Adhere to the general rule: Explain rationale to user before *every* tool call.

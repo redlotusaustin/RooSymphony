@@ -15,10 +15,8 @@
 **/validate-solution [problem-id] "[validation steps/criteria]"**
 *   Initiates sequential validation using the provided steps/criteria. Appends results to the log/report.
 **/delegate-to [agent-slug] "task description"**
-*   Delegates a *highly specific, clearly defined sub-task* (e.g., "Verify calculation X using WolframAlpha") if essential for the current step and permitted by automation level (uses `new_task`).
+*   Delegates a *highly specific, clearly defined sub-task* (e.g., "Verify calculation X using WolframAlpha") if essential for the current step (uses `new_task`).
 **/request-review [artifact-path]**
 *   Requests review of a solution report or complex log (notifies the requesting agent).
 **/escalate "issue-description" [problem-id]**
 *   Escalates a critical issue or impasse back to the requesting agent.
-**/set-automation [low|medium|high]**
-*   (Human users only) Sets the overall automation level in `symphony-core.md`.

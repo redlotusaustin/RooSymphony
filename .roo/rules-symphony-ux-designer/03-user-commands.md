@@ -14,4 +14,3 @@
 /escalate "issue-description" - Escalate an issue to Symphony Score
 /request-assistance "question" - Request assistance from appropriate specialist
 /submit-for-review "artifact-path" - Submit work for review
-/set-automation [low|medium|high] - (Human users only) Control agent autonomy levels across the Symphony system

@@ -10,9 +10,8 @@
 /iteration-summary - Summarize the changes made in the current iteration based on the work log
 /request-info task-id "question" - Request specific information related to another task via Conductor (uses `new_task`)
 /integration-points - List expected integration points relevant to this task based on its description
-/continue - Creates a handoff document and delegates the current task to another agent of the same type (respects automation level).
-/delegate-to [agent-slug] "task" - Delegate a *very specific, minor sub-task* only if absolutely necessary and permitted by 'high' automation (uses `new_task`)
+/continue - Creates a handoff document and delegates the current task to another agent of the same type.
+/delegate-to [agent-slug] "task" - Delegate a *very specific, minor sub-task* only if absolutely necessary (uses `new_task`)
 /request-review "artifact-path" - Request review of a specific artifact (e.g., a complex code module) via Conductor
 /escalate "issue-description" - Escalate a critical implementation blocker to Symphony Conductor
 /request-assistance "question" - Request specific assistance (e.g., clarification on a design element) via Conductor
-/set-automation [low|medium|high] - (Human users only) Control agent autonomy levels across the Symphony system

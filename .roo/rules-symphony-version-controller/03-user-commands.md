@@ -13,4 +13,3 @@
 /delegate-to [agent-slug] "task" - Delegate a specific task to another agent
 /request-review "artifact-path" - Request review of a specific artifact
 /escalate "issue-description" - Escalate an issue to Symphony Score for resolution
-/set-automation [low|medium|high] - (Human users only) Control agent autonomy levels across the Symphony system

@@ -2,7 +2,7 @@ As Dynamic Problem Solver:
 
 1.  **Analyze Problem Request:**
     *   Receive problem description, constraints, objectives, and a unique `problem-id` via `new_task` from another agent (e.g., Conductor, Researcher).
-    *   Identify key information, unknowns, ambiguities. Clarify success criteria with the requester via `new_task` if needed (respecting automation level).
+    *   Identify key information, unknowns, ambiguities. Clarify success criteria with the requester via `new_task` if needed.
     *   Use `access_mcp_resource` or `read_file` on provided context files.
 
 2.  **Select Problem-Solving Method (Sequential Evaluation):**
@@ -71,12 +71,10 @@ As Dynamic Problem Solver:
     *   Use `write_to_file` or `append_to_file` to save to `symphony-[project-slug]/knowledge/[topic]-knowledge-base.md`. Verify write.
 
 12. **Communicate Results:**
-    *   **CRITICAL:** Check automation level in `symphony-core.md`.
     *   Use `new_task` to notify the *requesting agent* that the problem-solving is complete.
     *   Provide the `problem-id` and the path to the solution report (`problem-solving/reports/[problem-id]-solution.md`) and the log file.
 
-13. **Automation Level Compliance:**
-    *   **CRITICAL:** Before using `new_task` or any user command targeting another agent, check `symphony-[project-slug]/core/symphony-core.md`. Adhere strictly to "low", "medium", "high" definitions.
+13. **Handoffs & Delegation:**
     *   Log all agent-initiated commands/delegations in `symphony-[project-slug]/communication/agent-interactions.md` using `append_to_file`.
 
 14. **Escalation:**

@@ -5,7 +5,7 @@ As Symphony Score:
     *   Use `read_file` thoroughly on `symphony-[project-slug]/specs/project-specification.md` and `symphony-[project-slug]/specs/architecture-diagrams.md`. **Summarize key features and constraints.**
     *   Identify major components, features, critical non-functional requirements, dependencies, and potential risks.
     *   Use `access_mcp_resource` ("github") and `use_mcp_tool` ("brave_search") for domain-specific planning context.
-    *   Consult specialists (`symphony-researcher`, `symphony-security-specialist`, `symphony-ux-designer`) via `new_task` for initial input if needed (respect automation level).
+    *   Consult specialists (`symphony-researcher`, `symphony-security-specialist`, `symphony-ux-designer`) via `new_task` for initial input if needed.
 
 2.  **Define Strategic Goals:**
     *   Break the project into 3-8 high-level, logical goals (assign unique Goal-IDs). Emphasize modularity and low coupling.
@@ -25,11 +25,9 @@ As Symphony Score:
     *   Use `write_to_file` to create `symphony-[project-slug]/communication/feedback-log.md` (for cross-team feedback summaries). Verify write.
     *   Use `write_to_file` to create `symphony-[project-slug]/communication/decision-log.md` (for key strategic/architectural decisions). Verify write. Subsequent updates use `append_to_file`.
     *   Use `write_to_file` to create `symphony-[project-slug]/communication/agent-interactions.md` (global log for agent-initiated commands/delegations). Verify write. Subsequent updates use `append_to_file`.
-    *   Use `write_to_file` to create `symphony-[project-slug]/status/automation-levels.md` as an initial report based on `symphony-core.md`. Verify write. (This file is a *report*, not the source of truth).
 
 6.  **Assign Goals Sequentially:**
     *   Identify the first goal(s) in `strategic-goals.md` with no unmet dependencies.
-    *   **CRITICAL:** Check automation level in `symphony-core.md`.
     *   Use `new_task` to delegate the Goal-ID to a `symphony-conductor`. Include clear directives, link to the goal definition, relevant specs, and success criteria. Reinforce modularity/coupling principles.
     *   Update the goal's `Status` to `Assigned` and `Assigned to` field in `project-status.md` using `apply_diff` or careful `write_to_file`. Verify update.
     *   Log assignment in `agent-interactions.md` (`append_to_file`).
@@ -73,13 +71,11 @@ As Symphony Score:
         *   Notify `symphony-composer` of project completion via `new_task`, providing the link to the completion report.
 
 14. **Manage Core Configuration:**
-    *   Update `symphony-core.md` for significant policy changes or if instructed to change automation levels (verify write).
-    *   After updating `symphony-core.md`, regenerate the report file `symphony-[project-slug]/status/automation-levels.md` using `write_to_file` (verify write). Log change in `decision-log.md`.
+    *   Update `symphony-core.md` for significant policy changes (verify write).
 
-15. **Automation Level Compliance:**
-    *   **CRITICAL:** Before using `new_task` or any user command targeting another agent, check `symphony-[project-slug]/core/symphony-core.md`. Adhere strictly to "low", "medium", "high" definitions.
+15. **Handoffs & Delegation:**
     *   Log all agent-initiated commands/delegations in `symphony-[project-slug]/communication/agent-interactions.md` using `append_to_file`.
 
 16. **Escalation:**
-    *   If major blockers reported by Conductors require specialist input beyond standard research, use `new_task` to delegate analysis to `symphony-dynamic-solver` (respecting automation level).
+    *   If major blockers reported by Conductors require specialist input beyond standard research, use `new_task` to delegate analysis to `symphony-dynamic-solver`.
     *   Escalate critical project-level issues, irreconcilable conflicts, or major risks impacting feasibility to `symphony-composer` via `new_task` with a clear summary and recommendations.
